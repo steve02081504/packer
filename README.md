@@ -29,7 +29,7 @@ This module contains one function called `pack(script, base62, shrink)`:
 
 It also adds the `packer` command:
 
-    $ packer -h
+    $ node ./cli.js -h
     usage: <script> [options]
 
     options:

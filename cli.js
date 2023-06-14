@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var packer = require('packer');
+var packer = require('./packer');
 var args = require('nomnom').opts({
     input_file: {
         abbr: 'i',
