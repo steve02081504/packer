@@ -1,12 +1,12 @@
 {
 	"name": "packer",
-	"description": "Simple port of /packer/ by Dean Edwards",
+	"description": "Simple port of /packer/ by Dean Edwards FIXED by tigrazone@gmail.com",
 	"version": "0.0.6",
 	"repository": "https://github.com/evanw/packer",
 	"author": "Evan Wallace",
 	"main": "packer",
 	"dependencies": {
-		"jsdom": ">= 0.1.23 < 4.0.0",
+		"jsdom": "^22.1.0",
 		"htmlparser": ">= 1.7.3",
 		"nomnom": ">= 1.0.0"
 	},
