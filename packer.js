@@ -230,12 +230,12 @@ var Packer = Base.extend({
 	CONTINUE: /\\\r?\n/g,
 	
 	ENCODE10: "String",
-	ENCODE36: "function(c){return c.toString(a)}",
-	ENCODE62: "function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))}",
+	ENCODE36: "(c)=>c.toString(a)",
+	ENCODE62: "(c)=>(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))",
 	
-	UNPACK: "eval(function(p,a,c,k,e,r){e=%5;if(!''.replace(/^/,String)){while(c--)r[%6]=k[c]" +
-	        "||%6;k=[function(e){return r[e]}];e=function(){return'\\\\w+'};c=1};while(c--)if(k[c])p=p." +
-			"replace(new RegExp('\\\\b'+e(c)+'\\\\b','g'),k[c]);return p}('%1',%2,%3,'%4'.split('|'),0,{}))",
+	UNPACK: "eval(((p,a,c,k,e,r)=>{e=%5;if(!''.replace(/^/,String)){while(c--)r[%6]=k[c]" +
+	        "||%6;k=[(e)=>r[e]];e=e=>'\\\\w+';c=1};while(c--)if(k[c])p=p." +
+			"replace(RegExp(`\\\\b${e(c)}\\\\b`,'g'),k[c]);return p})('%1',%2,%3,'%4'.split('|'),0,{}))",
 	
 	init: function() {
 		this.data = reduce(this.data, function(data, replacement, expression) {
